@@ -3,7 +3,7 @@ import scripts.libs.Clipboard
 
 def result = [:]
 def site = params.site
-def destination = params.destination
+def destination = params.parentPath
 def session = request.session
 def requestBody = request.reader.text
 

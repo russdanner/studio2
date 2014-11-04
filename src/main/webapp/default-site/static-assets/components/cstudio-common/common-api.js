@@ -1985,9 +1985,9 @@ YConnect.failureEvent.subscribe(function() {
 			// service uris
 			wcmMapContentServiceUri: "/proxy/alfresco/cstudio/wcm/content/map-content",
 			changeWcmContentTemplateServiceUri: "/proxy/alfresco/cstudio/wcm/content/add-wcm-properties",
-			copyContentToClipboardServiceUri: "/service/cstudio/services/clipboard/copy",
-			cutContentToClipboardServiceUri: "/service/cstudio/services/clipboard/cut",
-			pasteContentFromClipboardServiceUri: "/service/cstudio/services/clipboard/paste",
+			copyContentToClipboardServiceUri: "/api/1/services/clipboard/copy-item.json",
+			cutContentToClipboardServiceUri: "/api/1/services/clipboard/cut-item.json",
+			pasteContentFromClipboardServiceUri: "/api/1/services/clipboard/paste-item.json",
 			getClipboardItemsServiceUri: "/api/1/services/clipboard/get-items.json",
 			deleteContentForPath: "/proxy/alfresco/cstudio/wcm/content/delete-content",
 			contextServiceUri: "/context-nav",

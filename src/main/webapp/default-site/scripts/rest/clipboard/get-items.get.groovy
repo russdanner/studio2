@@ -9,6 +9,9 @@ def clipboardItem = Clipboard.getItem(site, session)
 result.site = site
 if (clipboardItem != null) {
     result.item = clipboardItem.item
+    result.count = clipboardItem.count
+} else {
+    result.count = 0
 }
 
 return result
