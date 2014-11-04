@@ -7,6 +7,8 @@ def session = request.session
 def clipboardItem = Clipboard.getItem(site, session)
 
 result.site = site
-result.item = clipboardItem.item
+if (clipboardItem != null) {
+    result.item = clipboardItem.item
+}
 
 return result
