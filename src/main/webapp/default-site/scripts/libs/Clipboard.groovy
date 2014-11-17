@@ -21,7 +21,7 @@ class Clipboard {
         serviceUrl += "&destination=" + destination
         serviceUrl += "&cut=" + clipboardItem.cut
         serviceUrl += "&alf_ticket=" + ticket
-        log.info "[Clipboard] requesting paste to " + serviceUrl
+        log.fine "[Clipboard] requesting paste to " + serviceUrl
 
         def requestItem = [:]
         requestItem.item = clipboardItem.item
@@ -30,10 +30,11 @@ class Clipboard {
         http.request( Method.POST, ContentType.JSON ) { req ->
             body = new JsonBuilder(requestItem).toPrettyString()
             response.success = { resp, json ->
+                session.removeAttribute(Clipboard.getKey(site))
                 return resp.status
             }
             response.failure = { resp ->
-                return resp.status
+                throw new Exception(resp.statusLine.statusCode + ":" + reader)
             }
         }
     }
@@ -47,7 +48,7 @@ class Clipboard {
     }
 
     public static clip(site, session, requestJson, cut, deep) {
-        log.info "[Clipboard][Copy] started clipping for " + site + " deep: " + deep + " cut: " + cut
+        log.fine "[Clipboard][Copy] started clipping for " + site + " deep: " + deep + " cut: " + cut
         def slurper = new JsonSlurper()
         def parsedReq = slurper.parseText(requestJson)
 
@@ -55,12 +56,13 @@ class Clipboard {
         clipboardItem.cut = cut
         clipboardItem.deep = deep
         clipboardItem.item = parsedReq.item
+        clipboardItem.count = parsedReq.item.size
         session.setAttribute(Clipboard.getKey(site), clipboardItem);
 
-        log.info "[Clipboard] copied -------------------- "
-        log.info "" + parsedReq.item;
+        log.fine "[Clipboard] copied -------------------- "
+        log.fine "" + parsedReq.item;
 
-        log.info "[Clipboard] done started clipping for " + site + " deep: " + deep + " cut: " + cut
+        log.fine "[Clipboard] done started clipping for " + site + " deep: " + deep + " cut: " + cut
     }
 
     public static getItem(site, session) {
