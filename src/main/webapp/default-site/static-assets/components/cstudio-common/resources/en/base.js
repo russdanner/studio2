@@ -1,7 +1,7 @@
 
 CStudioAuthoring.Messages.registerBundle("siteDashboard", "en",
     { dashboardTitle: "{0} Dashboard",
-  
+    approvedScheduledCollapseAll: "FOO!",
       dashletFilterPages: "Pages",
       dashletFilterComponents: "Components",
       dashletFilterDocuments: "Documents",
@@ -120,4 +120,56 @@ CStudioAuthoring.Messages.registerBundle("forms", "en", {
       errExpectedIndexXml: "Not expecting file-name other than index.xml",
       
 
+});
+
+CStudioAuthoring.Messages.registerBundle("search", "en", { 
+      defaultTitle: "WCM Search",
+      searchButtonLabel: "Search",
+      keywordsLabel: "Keywords (optional)",
+      searchResults: "Search Results", 
+      showing: "(Showing {0}-{1} of {2})", 
+      hideDescriptions: "Hide Descriptions",
+      showDescriptions: "Show Descriptions",
+      show: "Show",
+      sort: "Sort",
+      sortRelevance: "Relevance",
+      sortAlphabetical: "Alphabetical",
+      sortCreateDate: "Create Date",
+      pagePrevious: "Previous",
+      pageNext: "Next",
+      errSearchFailed: "Search Failed. Try adjusting your filters. Cause: If issue persists contact administrator with error: {0}",
+      errNoResults: "Your search returned no results.",
+});
+
+CStudioAuthoring.Messages.registerBundle("contentTypes", "en", { 
+      label: "Content Types",
+      openExistingType: "Open Existing Type",
+      createNewType: "Create New Type",
+      save:"Save",
+      saved:"Saved",
+      saveFailed:"Save Failed",
+      formSection:"Form Section",
+      repeatingGroup: "Repeating Group",
+      minOccurs: "Minimum Occurances",
+      maxOccurs: "Maximum Occurances",
+      formBasics: "Form Basics",
+      formTitle: "title",
+      description: "Description",
+      objectType: "Object Type",
+      contentType: "Content Type",
+      datasourceBasics: "Data Source Basics",
+      title: "Title",
+      name: "Name",
+      properties: "Properties",
+      sectionBasics: "Section Basics",
+      variableName: "Name / Variable Name",
+      iceGroup: "ICE Group",
+      fieldBasics: "Field Basics",
+      defaultValue: "Default Value",
+      help: "Help",
+      properties: "Properties",
+      constraints: "Constraints",
+      propertiesExplorer: "Properties Explorer",
+      controls: "Controls",
+      datasources: "Data Sources",
 });
