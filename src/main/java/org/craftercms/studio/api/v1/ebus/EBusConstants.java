@@ -41,11 +41,6 @@ public final class EBusConstants {
     public static final String REPOSITORY_DELETE_EVENT = "repository.delete";
 
     /**
-     * Repositroy delete site event name.
-     */
-    public static final String REPOSITORY_DELETE_SITE_EVENT = "repository.deleteSite";
-
-    /**
      * Repository preview sync event name.
      */
     public static final String REPOSITORY_PREVIEW_SYNC_EVENT = "repository.previewSync";
