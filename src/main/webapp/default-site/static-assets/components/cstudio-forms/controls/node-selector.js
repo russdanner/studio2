@@ -70,6 +70,11 @@ YAHOO.extend(CStudioForms.Controls.NodeSelector, CStudioForms.CStudioFormField, 
         this._renderItems();
     },
 
+    _onChangeVal: function(obj) {
+        obj.edited = true;
+        this._onChange();
+    },
+
     // Node object
     node: {
         label: '',
@@ -350,14 +355,14 @@ YAHOO.extend(CStudioForms.Controls.NodeSelector, CStudioForms.CStudioFormField, 
         this.items.splice(onTheMoveIndex, 1);
         this.items.splice(beforeItemIndex, 0, item);
         this.selectedItemIndex = beforeItemIndex;
-        this._onChange();
+        this._onChangeVal(this);
     },
 
     deleteItem: function(index) {
         if(index != -1) {
             this.items.splice(index, 1);
             this.count();
-            this._onChange();
+            this._onChangeVal(this);
         }
     },
 
@@ -389,7 +394,7 @@ YAHOO.extend(CStudioForms.Controls.NodeSelector, CStudioForms.CStudioFormField, 
             if(this.useSingleValueFilename == true) {
             /* the initial assumption was that a node selector would be used to pick a single file. _s tells
              * the search index that the value is a single value.  If the node selector is used to pick multiple files
-             * the indexing operation will fail. Because the node selctor is inheriently multi-valued in nature the 
+             * the indexing operation will fail. Because the node selctor is inheriently multi-valued in nature the
              * default going forward is to treat these values as multi-valued.  For backward compatibility we will support
              * _s if the form definition specifies that we do so
              */
@@ -425,12 +430,12 @@ YAHOO.extend(CStudioForms.Controls.NodeSelector, CStudioForms.CStudioFormField, 
             }
 
             this.count();
-            this._onChange();
+            this._onChangeVal(this);
         }else{
             alert(message);
         }
         this.count();
-        this._onChange();
+        this._onChangeVal(this);
     },
 
     count: function(){
@@ -453,7 +458,7 @@ YAHOO.extend(CStudioForms.Controls.NodeSelector, CStudioForms.CStudioFormField, 
         var item = this.items[this.selectedItemIndex];
         item.value =  value;
         this._renderItems();
-        this._onChange();
+        this._onChangeVal(this);
     },
 
     updateItems: function() {
@@ -467,6 +472,7 @@ YAHOO.extend(CStudioForms.Controls.NodeSelector, CStudioForms.CStudioFormField, 
 
     setValue: function(value) {
         this.items = value;
+        this.edited = false;
 
 
         if((typeof this.items) == "string") {
@@ -494,9 +500,10 @@ YAHOO.extend(CStudioForms.Controls.NodeSelector, CStudioForms.CStudioFormField, 
                 this.items = this.items[0].splice();
             }
         }
-        
+
         this.updateItems();
         this._onChange();
+        //this._onChangeVal();
         this.count();
     },
 
