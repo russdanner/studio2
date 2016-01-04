@@ -26,6 +26,32 @@ header {
   position: relative;
 }
 
+// minyMCE
+.mceListBoxMenu.cstudio-rteSkin{
+  width: 175px !important;
+  overflow: hidden !important;
+
+  .mceListBoxMenu{
+    width: 175px !important;
+    overflow: auto!important;
+    //overflow-x: hidden!important;
+
+    table{
+      width: 175px !important;
+    }
+
+  }
+
+}
+
+@media screen and (min-width:0\0) {
+  .CodeMirror .CodeMirror-lines pre.CodeMirror-cursor{
+    width: 9px;
+    border-width: 0px;
+    border-left-width: 2px;
+  }
+}
+
 // Reset and dependencies
 @import "../../static-assets/libs/bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
 @import "../../static-assets/libs/bootstrap-sass-official/assets/stylesheets/bootstrap/print";
